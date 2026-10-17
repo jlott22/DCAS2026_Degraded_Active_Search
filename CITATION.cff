@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper."
+title: "Decentralized Task-Allocation in Bayesian Search: An Empirical Study Under Degraded Communications"
+type: software
+authors:
+  - family-names: Lott
+    given-names: James
+  - family-names: Honary
+    given-names: Vahraz
+year: 2026
+repository-code: "https://github.com/jlott22/DCAS2026_Degraded_Active_Search"
