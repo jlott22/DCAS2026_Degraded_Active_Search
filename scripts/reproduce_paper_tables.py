@@ -31,8 +31,7 @@ def read_csv(name: str) -> list[dict[str, str]]:
 def summarize() -> tuple[dict, dict]:
     robot = read_csv("published_robot_metrics.csv")
     system = read_csv("published_system_metrics.csv")
-    scenarios = read_csv("published_scenarios.csv")
-    assert len(robot) == 540 and len(system) == 135 and len(scenarios) == 15
+    assert len(robot) == 540 and len(system) == 135
     robot_values = defaultdict(list)
     system_values = defaultdict(list)
     robot_keys = defaultdict(set)

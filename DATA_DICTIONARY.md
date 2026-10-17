@@ -12,6 +12,6 @@
 
 One record represents a four-robot system trial. `system_steps` is summed robot movement. `unique_cells` is the system's unique searched-cell count; `revisits` is the recorded repeat-visit count; `msgs_sent` is the system message count. The paper's Table III averages `msgs_sent / unique_cells` over 15 trials within each condition. Ratios are calculated per record before averaging.
 
-## `data/published_scenarios.csv`
+## `data/archived_scenarios_first15.csv`
 
-`object_x`, `object_y` are target coordinates. Four `clueN_x`, `clueN_y` pairs are clue coordinates. Coordinates are zero based on a 19 × 19 grid. These are the first 15 saved scenarios from the experiment's scenario file; no replacement seed or layout was generated for this release.
+`object_x`, `object_y` are target coordinates. Four `clueN_x`, `clueN_y` pairs are clue coordinates. Coordinates are zero based on a 19 × 19 grid. These are the first 15 rows in the experiment's saved scenario file. They are an archival reference, not a row-by-row manifest for the processed trials. For a particular recorded run, use the processed metric row's `target_location`.

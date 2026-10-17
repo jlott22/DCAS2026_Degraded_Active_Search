@@ -1,6 +1,6 @@
 # Decentralized task allocation in Bayesian search under degraded communications
 
-Paper release for **“Decentralized Task-Allocation in Bayesian Search: An Empirical Study Under Degraded Communications”** by James Lott and Vahraz Honary (DCAS 2026). This repository contains the three four-robot implementations, the saved 19 × 19 paired scenarios, processed measurements for all 135 published trials, and a script that recomputes the paper's computation and messaging tables.
+Paper release for **“Decentralized Task-Allocation in Bayesian Search: An Empirical Study Under Degraded Communications”** by James Lott and Vahraz Honary (DCAS 2026). This repository contains the three four-robot implementations, a saved 19 × 19 scenario reference, processed measurements for all 135 published trials, and a script that recomputes the paper's computation and messaging tables.
 
 ## Reproduce the published tables
 
@@ -10,7 +10,7 @@ Python 3.10 or newer is sufficient for the processed-data check; no robot hardwa
 python scripts/reproduce_paper_tables.py
 ```
 
-The script checks 15 paired scenarios × 3 methods × 3 receiver-side loss conditions. It prints Table II (onboard computation fraction) and Table III (messages per unique searched cell) and verifies their published rounded values. The included CSVs are processed exports from the experiment workbook; the original workbook and raw logs are retained in the separate research archive.
+The script checks 15 trial IDs × 3 methods × 3 receiver-side loss conditions. It prints Table II (onboard computation fraction) and Table III (messages per unique searched cell) and verifies their published rounded values. The included metric CSVs are processed exports from the experiment workbook; the original workbook and raw logs are retained in the separate research archive.
 
 ## Repository map
 
@@ -20,7 +20,7 @@ The script checks 15 paired scenarios × 3 methods × 3 receiver-side loss condi
 | `hardware/bridge/` | ESP32 MQTT-to-UART bridge used with the robots. |
 | `hardware/hub/` | MQTT metrics collector. |
 | `scenarios/` | Scenario generator retained with the experiment. |
-| `data/published_scenarios.csv` | The 15 saved paired target/clue layouts used in the published comparison. |
+| `data/archived_scenarios_first15.csv` | The first 15 layouts in the saved scenario file, retained as an experiment reference. |
 | `data/published_robot_metrics.csv` | 540 processed robot records, four robots per trial. |
 | `data/published_system_metrics.csv` | 135 processed system trial records. |
 | `scripts/reproduce_paper_tables.py` | Standard-library table regeneration and structural checks. |
@@ -30,7 +30,7 @@ The script checks 15 paired scenarios × 3 methods × 3 receiver-side loss condi
 
 The robot programs target Pololu 3pi+ 2040 robots running MicroPython with the `pololu_3pi_2040_robot` library. Deploy one selected method to each of four robots. Set `ROBOT_ID` to `00`, `01`, `02`, or `03` for each device and set `msg_drop_rate` to `0.0`, `0.10`, or `0.25` for the intended condition. The archived files retain the final local settings in which they were saved. Set the MQTT broker address in `hardware/hub/metrics_hub.py` and the ESP32 sketch for your network. The hub requires `paho-mqtt`; the ESP32 sketch requires its Arduino MQTT dependencies. The saved scenario CSV fixes target and clue placements for the published comparisons.
 
-The processed-data script is the supported no-hardware reproduction path. Hardware execution depends on the specified Pololu, ESP32, MQTT, and grid setup.
+The processed-data script is the supported no-hardware reproduction path. The scenario reference is not a verified row-by-row run manifest; use the `target_location` field in the processed trial CSVs when auditing specific recorded runs. Hardware execution depends on the specified Pololu, ESP32, MQTT, and grid setup.
 
 ## Provenance and citation
 
