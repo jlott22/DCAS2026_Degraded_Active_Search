@@ -28,7 +28,7 @@ The script checks 15 trial IDs × 3 methods × 3 receiver-side loss conditions. 
 
 ## Hardware use
 
-The robot programs target Pololu 3pi+ 2040 robots running MicroPython with the `pololu_3pi_2040_robot` library. Deploy one selected method to each of four robots. Set `ROBOT_ID` to `00`, `01`, `02`, or `03` for each device and set `msg_drop_rate` to `0.0`, `0.10`, or `0.25` for the intended condition. The archived files retain the final local settings in which they were saved. Set the MQTT broker address in `hardware/hub/metrics_hub.py` and the ESP32 sketch for your network. The hub requires `paho-mqtt`; the ESP32 sketch requires its Arduino MQTT dependencies. The saved scenario CSV fixes target and clue placements for the published comparisons.
+The robot programs target Pololu 3pi+ 2040 robots running MicroPython with the `pololu_3pi_2040_robot` library. Deploy one selected method to each of four robots. Set `ROBOT_ID` to `00`, `01`, `02`, or `03` for each device and set `msg_drop_rate` to `0.0`, `0.10`, or `0.25` for the intended condition. The archived files retain the final local settings in which they were saved. Set the MQTT broker address in `hardware/hub/metrics_hub.py` and the ESP32 sketch for your network. The hub requires `paho-mqtt`; the ESP32 sketch requires its Arduino MQTT dependencies. The saved scenario CSV provides sample target and clue placements from the experiment archive.
 
 The processed-data script is the supported no-hardware reproduction path. The scenario reference is not a verified row-by-row run manifest; use the `target_location` field in the processed trial CSVs when auditing specific recorded runs. Hardware execution depends on the specified Pololu, ESP32, MQTT, and grid setup.
 
